@@ -1,3 +1,24 @@
-# BOOM LOOP
+# BOOM LOOP 💣
 
-A free multiplayer relay game. Current state: pre-launch prototype. No cash rewards, no monetary prizes, no advertisements or payouts. This repository contains the isolated development source.
+**[무료 링크 릴레이 체험판 플레이](https://khs2honest-art.github.io/boom-loop-game/)**
+
+친구가 폭탄 링크를 받으면 다음 친구에게 넘기는 24시간 릴레이 프로토타입입니다. 설치·회원가입·결제 없이 링크만 공유할 수 있습니다.
+
+## 공개 체험판 (GitHub Pages)
+
+- `docs/index.html`, `docs/game.js`: **서버 없이 동작하는 별도 체험판**입니다.
+- 릴레이 단계는 URL 및 각 브라우저의 저장소에만 남습니다. 사용자가 임의로 바꿀 수 있으므로 **서버 검증·공식 랭킹·실시간 친구 수락 확인은 제공하지 않습니다.**
+- 현금·상품권·암호화폐·양도 가능한 포인트·광고 시청 보상은 제공하지 않습니다.
+- 개인정보는 게임 화면에서 입력받지 않으며, 기기에 보관한 테스트 상태는 화면 아래에서 초기화할 수 있습니다.
+- 호스팅 서비스 자체의 접속 로그는 GitHub의 정책이 적용됩니다.
+
+## 서버형 정식 게임 (아직 배포하지 않음)
+
+- `worker.js` / `retention.js` / `schema.sql`: Cloudflare Workers + D1 기반 서버형 개발본
+- `public/`: 서버형 모바일 화면
+- `wrangler.toml`: 인증된 Cloudflare 계정과 실제 D1 ID 설정 필요
+- `RELEASE_GATES.md`: 개인정보·규제·광고·운영 준비 과제
+
+**현재 이 저장소의 GitHub Pages에서 서버형 게임이 작동하는 것은 아닙니다.** GitHub Pages는 정적 페이지 서비스이며 상업용 SaaS/온라인 사업 서버로 이용할 수 없습니다. 정식 광고 수익화와 영속적인 멀티플레이어 서버는 다른 적법한 운영 플랫폼이 필요합니다.
+
+오픈소스 공개는 코드 열람용이며 별도의 사용 허락/라이선스가 지정된 것은 아닙니다. 테스트 단계입니다.
