@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17141b">
+<meta name="description" content="폭탄을 받으면 다음 친구에게! 가입 없이 링크로 즐기는 무료 BOOM LOOP 릴레이 체험판.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="💣 BOOM LOOP — 폭탄을 넘겨라!">
+<meta property="og:description" content="친구가 보낸 폭탄을 받고 다음 친구에게 전달해 봐. 24시간 무료 릴레이!">
+<title>BOOM LOOP — 폭탄 릴레이 체험판</title>
+<style>
+:root{color-scheme:dark;--bg:#17141b;--paper:#25212b;--line:#514852;--fg:#f8f2eb;--muted:#bdb3bd;--hot:#ffb859;--red:#ff5e53;--green:#88e8be;font-family:system-ui,-apple-system,Segoe UI,Noto Sans KR,sans-serif}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--fg);background:radial-gradient(ellipse at 50% -18%,#55332d 2%,#2a2028 52%,var(--bg) 84%);padding:0 16px 40px}
+main{max-width:510px;margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:21px 2px 9px}.logo{font-size:22px;font-weight:1000;letter-spacing:-1px}.logo span{color:var(--red)}.tag{font-size:11px;color:var(--hot);padding:5px 10px;border:1px solid #8d6551;border-radius:40px;font-weight:800}
+.hero{text-align:center;padding:25px 10px 3px}.overline{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--hot)}h1{font-size:34px;line-height:1.22;letter-spacing:-1px;margin:12px auto 9px}h1 em{font-style:normal;color:var(--hot)}p{line-height:1.75}.sub{color:var(--muted);font-size:14px}.bomb{font-size:106px;margin:4px 0 7px;filter:drop-shadow(0 14px 22px #0008);animation:float 2.7s ease-in-out infinite alternate}@keyframes float{from{transform:translateY(2px) rotate(-9deg)}to{transform:translateY(-11px) rotate(5deg)}}
+.card{border-radius:21px;background:var(--paper);padding:19px;margin:13px 0;border:1px solid var(--line)}.card strong{color:#fff}.heading{font-size:16px;font-weight:900;margin-bottom:10px}.message{font-size:13px;color:var(--muted);line-height:1.6}.center{text-align:center}.time{font-size:31px;color:var(--hot);font-weight:1000;margin:8px 0;letter-spacing:1px;font-variant-numeric:tabular-nums}.hop{font-size:38px;font-weight:1000;color:var(--hot);margin:5px 0}.btn{display:block;width:100%;font:inherit;font-weight:900;font-size:17px;color:#241819;border:none;border-radius:15px;padding:16px 10px;background:linear-gradient(115deg,#ffe182,#ff9265);cursor:pointer;margin:12px 0 6px}.btn.secondary{color:#f3eef1;background:#433b48}.btn.outline{background:transparent;color:var(--hot);border:1px solid #947353}.btn:disabled{opacity:.48;cursor:not-allowed}
+.pill{display:inline-block;background:#4e3e2c;color:#ffe1ac;border-radius:30px;padding:5px 10px;font-size:12px;font-weight:800}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{background:#332c35;border-radius:14px;text-align:center;padding:14px 8px}.metric b{display:block;font-size:21px;color:var(--hot)}.metric span{font-size:11px;color:var(--muted)}.callout{padding:13px 15px;border:1px solid #76664b;border-radius:13px;color:#f8dda9;background:#40362d;line-height:1.6;font-size:12px;margin:15px 0}.success{border-color:#387e63;background:#203a31;color:#a9f0cd}
+.share-url{width:100%;background:#19151d;border:1px solid #6b5a60;color:#faf7fb;padding:11px;border-radius:10px;word-break:break-all;font-size:12px}.share-url:focus{outline-color:var(--hot)}
+footer{text-align:center;font-size:12px;color:#ac9fa7;line-height:1.75;padding:15px 6px;margin:20px auto}footer a{color:#ffe1a5}#status{min-height:0}.hide{display:none!important}
+@media(max-width:360px){h1{font-size:28px}.bomb{font-size:85px}.card{padding:15px}}@media(prefers-reduced-motion:reduce){.bomb{animation:none}}
+</style><script defer src="./game.js"></script></head>
+<body><main>
+<header class="nav"><div class="logo">BOOM <span>LOOP</span></div><span class="tag">무료 링크 체험판</span></header>
+<div class="hero"><div class="overline">ONE BOMB. ENDLESS FRIENDS.</div><h1>폭탄을 넘기고<br><em>릴레이를 이어가!</em></h1><p class="sub">친구가 수락하면 다음 친구 차례!<br>24시간 안에 몇 명에게 전달될까?</p><div class="bomb" aria-hidden="true">💣</div></div>
+<div class="callout">현재는 <strong>서버 없는 체험판</strong>이야. 릴레이 단계는 링크에만 저장되며 누구나 조작할 수 있으므로 공식 랭킹·점수·당첨·현금 보상은 없어. 전달 완료 여부도 보낸 사람에게 자동 전송되지 않아.</div>
+<div id="status" role="status" aria-live="polite"></div>
+<section class="card hide" id="receive">
+  <div class="overline center">INCOMING BOMB</div><h2 class="center">누군가 너에게 폭탄을 보냈어!</h2>
+  <div class="center"><span class="pill">24시간 무료 릴레이</span><div class="time" id="receiveTimer">--:--:--</div>
+  <div class="message">현재까지 전달된 횟수 <strong id="incomingHops">0번</strong><br>폭탄을 받으면 전달 횟수가 +1 증가해.</div></div>
+  <button class="btn" id="accept">💥 폭탄 받기</button>
+  <p class="message center">폭탄을 받더라도 벌금이나 결제는 없어.</p>
+</section>
+<section class="card hide" id="holding">
+  <div class="overline center">PASS IT TO A FRIEND</div><h2 class="center" style="margin-bottom:0">폭탄은 이제 네 손에!</h2>
+  <div class="center"><div class="hop" id="ownHops">0번 전달</div><div class="time" id="ownTimer">--:--:--</div></div>
+  <button class="btn" id="share">🔗 친구에게 폭탄 보내기</button>
+  <div class="hide" id="shareOptions"><label class="message" for="link">친구가 열어 수락할 초대 링크</label><input id="link" class="share-url" readonly>
+  <button class="btn secondary" id="copy">링크 복사</button></div>
+  <p class="message center">이 체험판은 친구가 수락했는지 자동 확인할 수 없어. 친구가 새로 공유하면 단계가 이어져.</p>
+  <button class="btn outline" id="new">다른 폭탄 새로 시작</button>
+</section>
+<section class="card hide" id="start"><div class="heading center">🚀 첫 번째 폭탄을 시작해!</div>
+<p class="sub center">가입도 설치도 필요 없어. 시작한 뒤 친구에게 링크를 보내면 돼.</p>
+<button class="btn" id="create">💣 폭탄 시작하기</button></section>
+<section class="card hide" id="expired"><h2 class="center">💥 시간이 끝났어!</h2>
+<p class="sub center">이 릴레이의 24시간이 끝났어.<br>새로운 폭탄으로 다시 시작할 수 있어.</p>
+<button class="btn" id="restart">새 폭탄 시작하기</button></section>
+<section class="card"><div class="heading">게임 규칙</div><div class="grid">
+  <div class="metric"><b>24시간</b><span>한 폭탄의 제한시간</span></div>
+  <div class="metric"><b>+1</b><span>친구가 수락한 순간 증가</span></div>
+</div><p class="message">개인 이름·전화번호·이메일을 받지 않아. 게임 상태는 초대 링크와 이 기기의 저장소에만 보관돼. 이 체험판은 서버 기록·금전성 포인트·현금 지급·광고 시청 조건이 없어.</p></section>
+<footer>BOOM LOOP · 계정 없는 오락용 체험판<br>초대 메시지는 원하는 친구에게만 보내 줘.<br><a href="https://github.com/khs2honest-art/boom-loop-game">소스 및 안내</a> · <button id="clear" style="background:none;border:0;color:#ffe1a5;text-decoration:underline;cursor:pointer">내 브라우저 기록 초기화</button></footer>
+</main></body></html>
